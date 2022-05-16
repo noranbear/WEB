@@ -1,0 +1,78 @@
+<meta charset="UTF-8">
+<script>
+window.onload = function(){
+	var num = 10.3;
+	var b = true;
+	var str = 'abc';
+	var str2 = '"abc"';
+	var str3 = '100';
+	var v;
+	// var 생략하고 변수선언 할 수 있음 h2 = 어쩌구,
+	// 하지만 가독성을 위해 var을 쓰자.
+	var h2 = document.querySelector('#hh2');
+	var type = typeof(num);		// 현재 선언한 변수가 무슨 타입인지 가져옴
+	h2.innerHTML = type + ' ' + num;	// 10, number / 10.3, number = 정수실수 나누지 않음-다 number
+	
+	var h3 = document.querySelector('#hh3');
+	var type2 = typeof(b);
+	h3.innerHTML = type2 + ' ' + b;
+	
+	var h4 = document.querySelector('#hh4');
+	var type3 = typeof(str);
+	h4.innerHTML = type3 + ' ' + str;
+	
+	var h5 = document.querySelector('#hh5');
+	var type4 = typeof(str2);
+	h5.innerHTML = type4 + ' ' + str2;
+	
+	var h6 = document.querySelector('#hh6');
+	var type5 = typeof(str3);
+	h6.innerHTML = type5 + ' ' + (str3+num);
+	
+	var h7 = document.querySelector('#hh7');
+	h7.innerHTML = type5 + ' ' + (str3*num);	// 더하기 빼고 문자 사칙연산 됨.
+	
+	var h8 = document.querySelector('#hh8');
+	var type6 = typeof(v);
+	h8.innerHTML = type6 + ' ' + v;		// undefined - 초기화하자
+	
+	
+	// array
+	var h100 = document.querySelector('#hh100');
+	var a = [1,2,3,4,5];
+	var type100 = typeof(a);
+	h100.innerHTML = type100 + ' ' + a;
+	
+	// obj
+	// JSON (JavaScript Objet Notation)
+	var h200 = document.querySelector('#hh200');
+	var h201 = document.querySelector('#hh201');
+	var obj = {id:'id01', name:'lee', age:10};	// 이런 게 JSON
+	var type200 = typeof(obj);
+	h200.innerHTML = type200 + ' ' + obj;
+	h201.innerHTML = type200 + ' ' + obj.id;
+	
+	// function
+	var h300 = document.querySelector('#hh300');
+	var f = function(){		// 변수에다 함수 선언 가능
+		return 333;
+	};	
+	var type300 = typeof(f);
+	h300.innerHTML = type300 + ' ' + f();
+	
+};
+</script>
+
+
+<h1>JS02 Main</h1>
+<h2 id="hh2"></h2>	<!-- 텍스트를 뿌리고 싶음 - 화면 출력 후 hh2를 가져가야 함 -->
+<h2 id="hh3"></h2>
+<h2 id="hh4"></h2>
+<h2 id="hh5"></h2>
+<h2 id="hh6"></h2>
+<h2 id="hh7"></h2>
+<h2 id="hh8"></h2>
+<h2 id="hh100"></h2>
+<h2 id="hh200"></h2>
+<h2 id="hh201"></h2>
+<h2 id="hh300"></h2>

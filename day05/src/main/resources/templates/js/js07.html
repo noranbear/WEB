@@ -1,0 +1,49 @@
+<meta charset="UTF-8">
+<script>
+var txt = '';
+var result = '';
+
+function calc(n){
+	alert(txt);
+	txt += n;
+	
+	if(n == 'c'){
+		txt = '';
+	}else if(n == '='){
+		result = evel(txt);
+		document.querySelector('#data').value = result;
+	}
+	document.querySelector('#data').value = txt;
+
+}
+
+</script>
+
+
+<h1>JS07: Calculator</h1>
+<input type="text" id="data" >
+<br>
+<button onclick="calc('c');">C</button>
+<button onclick="calc('');">()</button>
+<button onclick="calc('%');">%</button>
+<button onclick="calc('/');">/</button>
+<br>
+<button onclick="calc('7');">7</button>
+<button onclick="calc('8');">8</button>
+<button onclick="calc('9');">9</button>
+<button onclick="calc('*');">x</button>
+<br>
+<button onclick="calc('4');">4</button>
+<button onclick="calc('5');">5</button>
+<button onclick="calc('6');">6</button>
+<button onclick="calc('-');">-</button>
+<br>
+<button onclick="calc('1');">1</button>
+<button onclick="calc('2');">2</button>
+<button onclick="calc('3');">3</button>
+<button onclick="calc('+');">+</button>
+<br>
+<button onclick="calc('+/-');">+/-</button>
+<button onclick="calc('0');">0</button>
+<button onclick="calc('.');">.</button>
+<button onclick="calc('=');">=</button>

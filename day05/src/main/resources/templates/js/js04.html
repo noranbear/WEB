@@ -1,0 +1,75 @@
+<meta charset="UTF-8">
+<style>
+#result{
+	width: 350px;
+	border: 2px solid red;
+}
+table{
+	width: 100%;
+	text-align: left;
+	border: 3px solid blue;
+	background: black;
+}
+th, td{
+	padding: 5px;
+	border: 2px solid yellow;
+}
+th{
+	text-align: center;
+}
+tr{
+	color: white;
+}
+#tr{
+	background: yellow;
+	color: black;
+}
+</style>
+<script>
+function getdata(){
+	// JSON
+	var a = [
+			{id:'id01',name:'lee',age:10},
+			{id:'id02',name:'kim',age:5},
+			{id:'id03',name:'na',age:30},
+			{id:'id04',name:'song',age:25},
+			{id:'id05',name:'no',age:82}];
+	var txt = '';
+/*	for(var i=0; i < a.length; i++){
+		txt += '<h2>'+a[i]+'</h2>';
+	};*/
+	
+	// 네이버 실시간 검색 가져올 때 이런 식.
+	// 뿌리는 부분은 손이 많이 감.
+	for(var i in a){	// foreach: i는 index, a는 array
+		txt += '<h3>';
+		txt += 'id: '+ a[i].id + ', name: '+ a[i].name + ', age: '+ a[i].age;
+		txt += '</h3>';
+	};
+	// 테이블
+	txt += '<table id="t">';
+	txt += '<thead>';
+	txt += '<tr id="tr">';
+	txt += '<th>id</th><th>name</th><th>age</th>';
+	txt += '</tr>';
+	txt += '</thead>';
+	
+	txt += '<tbody>';
+	for(var i in a){
+		txt += '<tr>';
+		txt += '<td>' + a[i].id +'</td>';
+		txt += '<td>' + a[i].name +'</td>';
+		txt += '<td>' + a[i].age +'</td>';
+		txt += '</tr>';
+	}
+	txt += '</tbody>';
+	txt += '</table>';
+	document.querySelector('#result').innerHTML= txt;
+};
+
+</script>
+
+
+<h1>JS04 Main</h1>
+<h2><a href="#" onclick="getdata();">Click</a></h2>
+<div id="result"></div>

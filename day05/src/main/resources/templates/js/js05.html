@@ -1,0 +1,76 @@
+<meta charset="UTF-8">
+<script>
+// 함수 정의 2가지 방법
+function a(n){
+	var result = n * 1000;
+	return result;
+};
+var b = function(){
+	return 'B';
+};
+// 스크립트 언어라서 같은 이름의 함수 선언가능.
+var b = function(){
+	return 'BBB';
+};
+var b = function(n,m){
+	var result = n * m;
+	return result;
+};
+var result = b(100,222);
+var result2 = a(100);
+//alert(result);
+//alert(result2);
+
+// js에서의 특별한 함수 선언 및 사용 - 스크립트 언어
+// 1.
+function c(){
+	return function(){	// 함수 리턴
+		return 100;
+	};	
+};
+
+var r1 = c();	// r1 = 함수
+var result3 = r1();
+alert(result3);
+
+// 2. 
+function d(f){
+	var result = f() * 2;
+	return result;
+};
+var dd = function(){
+	return 100;
+};
+var result4 = d(dd);	// 함수 argument
+//alert(result4);
+
+/*function display(){
+	var tf = function(){
+		var d = new Date();
+		var reuslt = d.getHours()+' '+d.getMinutes()+' '+d.getSeconds();
+		document.querySelector('#time').innerHTML = d.toString();
+	};
+	setInterval(tf,1000);	// 1초에 한 번씩 함수가 실행된다.
+};*/
+// 위와 같음
+function display(){
+	setInterval(function(){
+		var d = new Date();
+		var result = d.getHours()+' '+d.getMinutes()+' '+d.getSeconds();
+		document.querySelector('#time').innerHTML = result;
+		},1000);
+};
+
+window.onload= function(){
+	display();
+};
+
+</script>
+
+
+<h1>JS05 Main</h1>
+<h2 id="time"></h2>
+
+
+
+

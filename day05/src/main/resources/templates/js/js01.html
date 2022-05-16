@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+<style>
+#hh2{
+	background-color: yellow;
+}
+</style>
+<script>
+// main.html에 넣어도 됨.
+// 스크립트 언어라서 위부터 실행.
+// alert('Alert...........');
+function h2(){
+	alert('Alert...........');
+	
+	// 변수 선언 - 문서에서 h2라는 태그의 글(<h2>Header2</h2>)을 가져와라
+	// var h2 = document.querySelector('h2');
+	// 변수 선언 - 문서에서 h22라는 id의 글(<h2>Header2</h2>)을 가져와라
+	var h2 = document.querySelector('#hh2');
+	h2.innerHTML = 'replace text';	// h2 text를 이것으로 바꾸겠다.
+	// html에서는 "", js에서는 ''을 쓰자.
+};
+// 화면이 로딩(바디와 바디 사이 출력 끝)되면 자동 호출
+window.onload = function(){
+	var h3 = document.querySelector('#hh3');
+	var i = 10;
+	var j = 20;
+	var result = i * j;
+	console.log("i+j = " + result);
+	// 현재 null - 왜? 실행 당시 화면 출력 전(h3가 화면에 안 나온 상태)
+	// => window.onload 함수 안에 넣기
+	h3.innerHTML = result;	// String + int 가능	
+};
+</script>
+
+
+<h1>JS01 Main</h1>
+<button onclick="h2();">Click</button>	<!-- 이벤트 발생-> h2가 바뀜 -->
+<h2 id="hh2">Header2</h2>
+<h3 id="hh3">Header3</h3>
+
+
