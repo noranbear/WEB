@@ -4,11 +4,27 @@
 
 이 [강의]에선 **eclipse**를 사용하였다.
 
+<br>
 
+<br>
 
 ## 개요
 
-[TOC]
+- 개발환경
+
+- 환경세팅
+    		1. STS 환경세팅
+    		2. SpringBoot 환경세팅
+         - 프로젝트 생성
+         - Maven Library
+    		3. Web Application
+         - Importing Dependencies
+         - Port 및 jsp 파일 경로 설정
+- WEB 실행
+
+<br>
+
+<br>
 
 ## 개발환경
 
@@ -20,7 +36,9 @@
 - Java 8
 - Maven
 
+<br>
 
+<br>
 
 ## 환경세팅 시작
 
@@ -115,7 +133,7 @@
 
 <br>
 
-## 2) SpringBoot Web Application 환경 세팅
+## 2) SpringBoot 환경 세팅
 
 이제 SpringBoot Web Application을 만들기 위해:
 
@@ -125,7 +143,7 @@
 
 <br>
 
-### SpringBoot 세팅 - 프로젝트 생성
+### 프로젝트 생성
 
 1. Eclipse에서 **File > New > Project...** 를 눌러서 새 프로젝트를 생성한다.
 
@@ -259,6 +277,8 @@
 
 <br>
 
+## 3) Web Application 환경세팅
+
 ### 필요 Dependency 가져오기
 
 - pom.xml 파일에서 ```<dependencies></dependencies>``` 안에 아래의 코드를 삽입한다.
@@ -353,12 +373,12 @@
 >
 > 포트는 한 번에 한 서버만을 연계하기 때문에 여러 프로젝트가 동시 실행이 불가하다.
 
+<br>
 
+<br>
 
-
-
-
+<br>
 
 [맨위로](#개요)
 
-
+<br><br>
