@@ -1,3 +1,44 @@
 <meta charset="UTF-8">
 
+<script>
+window.onload = function(){
+	var c1 = document.querySelector('#c1');
+	var c2 = document.querySelector('#c2');
+	var c3 = document.querySelector('#c3');
+	var h1 = document.querySelector('h1'); // 글자에도 이벤트 붙일 수 있음
+	
+	// 이벤트 처리 - onclick tag 없이 - 화면에서 가져와서 이벤트 붙이기
+	c1.onclick = function(){
+		alert('c1');
+		h1.innerHTML = 'Clicked c1';
+	};
+	c2.onclick = function(){
+		var c = confirm('회원가입 ㄱ?');
+		if(c == true){
+			location.href='/';
+		}
+	};
+	c3.onclick = function(){
+		///alert('c3');
+		var c = confirm('네이버 ㄱㄱ?'); // confirm: 한 번 확인 - 선택지를 줌
+		if(c == true){
+			location.href='http://www.naver.com';
+		}
+	};
+	// 손가락을 안 바뀌기 때문에 사용자들이 알아챌 수 있을지는 미지수
+	h1.onclick = function(){
+		var c = prompt('숫자 입력 ㄱㄱ', 0);
+		this.innerHTML = c;
+	};
+	
+	// click이 일어나면 함수 발생
+	/*c1.addEventListener('click', function(){
+		alert('c1');
+	});*/
+};
+</script>
+
 <h1>JS09 Main</h1>
+<button id="c1">Click1</button>
+<button id="c2">Click2</button>
+<h2><a id="c3" href="#">Click</a></h2>

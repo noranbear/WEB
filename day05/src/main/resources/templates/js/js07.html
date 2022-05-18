@@ -1,19 +1,29 @@
 <meta charset="UTF-8">
+
 <script>
-var txt = '';
-var result = '';
+//var txt = '';
+//var result = '';
 
 function calc(n){
-	alert(txt);
-	txt += n;
-	
+	//alert(txt);
+	if(n == '='){
+		var data = document.querySelector('#data').value;
+		var result = evel(data);
+		document.querySelector('#data').value = result;
+		return;
+	}
+	var data = document.querySelector('#data').value;
+	data += n;
+	document.querySelector('#data').value = data;
+	//txt += n;
+	/*
 	if(n == 'c'){
 		txt = '';
 	}else if(n == '='){
 		result = evel(txt);
 		document.querySelector('#data').value = result;
 	}
-	document.querySelector('#data').value = txt;
+	document.querySelector('#data').value = txt; */
 
 }
 

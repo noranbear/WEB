@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+
+<script>
+$(document).ready(function(){
+	$('#n1').keydown(function(){	
+		if($(this).val().length >= 6){	// 여러개가 동시에 눌릴 때는 넘어가게 됨.
+			$('#n2').focus();
+		};
+	});
+});
+</script>
+
+
+<h1>JQ11 Main</h1>
+
+<input id="n1" type="number" name="in1">-<input id="n2" type="number" name="in2">
+
+

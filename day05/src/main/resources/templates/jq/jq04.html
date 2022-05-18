@@ -1,0 +1,84 @@
+<meta charset="UTF-8">
+
+<script>
+$(document).ready(function(){
+	
+	// 다음 버튼을 눌렀을 때
+	$('button').click(function(){
+		var lname = $('input[name="lname"]').val();
+		var fname = $('input[name="fname"]').val();
+		var email = $('input[name="email"]').val();
+		var pwd = $('input[name="pwd"]').val();
+		var cpwd = $('input[name="cpwd"]').val();
+		
+		// 빈 공간 경고 - !썼을 때 경고문 사라지는 거
+		if(lname == ''){
+			$('#sname').text('*성을 쓰시오.').css('color','red');
+			$('input[name="lname"]').focus();
+			return;
+		}
+		if(fname == ''){
+			$('#sname').text('*이름을 쓰시오.').css('color','red');
+			$('input[name="fname"]').focus();
+			return;
+		}
+		if(email == ''){
+			$('#semail').text('*이메일을 쓰시오.').css('color','red');
+			$('input[name="email"]').focus();
+			return;
+		}
+		if(pwd == ''){
+			$('#spwd').text('*비밀번호를 쓰시오.').css('color','red');
+			$('input[name="pwd"]').focus();
+			return;
+		}
+		if(pwd.length < 8){
+			$('#spwd').text('*문자,숫자,기호를 조합하여 8자 이상을 사용하세요').css('color','red');
+			$('input[name="pwd"]').focus();
+			return;
+		}
+		if(cpwd == ''){
+			$('#spwd').text('*비밀번호를 확인하시오.').css('color','red');
+			$('input[name="cpwd"]').focus();
+			return;
+		}
+		if(pwd != cpwd){
+			$('#spwd').text('*비밀번호가 일치하지 않습니다.').css('color','red');
+			$('input[name="cpwd"]').focus();
+			return;
+		}
+		
+		$('#login_form').attr({
+			'action':'register1',
+			'method':'post'
+		});
+		$('#login_form').submit();
+		
+	});
+});
+</script>
+
+
+<h1>JQ04 WS</h1>
+<h1>Webpage 계정 만들기</h1>
+<hr>
+<form id="login_form">
+	<div>
+		<input type="text" name="lname" placeholder="성">
+		<input type="text" name="fname" placeholder="이름">
+		<span id="sname"></span><br><br>
+	</div>
+	<div>
+		<input type="email" name="email" placeholder="이메일"><br>
+		<span id="semail">문자, 숫자, 마침표를 사용할 수 있습니다</span><br><br>
+	</div>
+	<div>
+		<input type="password" name="pwd" placeholder="비밀번호">
+		<input type="password" name="cpwd" placeholder="확인"><br>
+		<span id="spwd">문자,숫자,기호를 조합하여 8자 이상을 사용하세요</span><br><br>
+	</div>
+</form>
+<button>다음</button><span id="sp"> </span>
+
+
+

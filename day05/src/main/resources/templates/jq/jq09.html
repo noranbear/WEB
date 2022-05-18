@@ -1,0 +1,85 @@
+<meta charset="UTF-8">
+
+<style>
+#result{
+	border: 2px solid yellow;
+}
+.myclass{
+	color: yellow;
+	background: black;
+}
+</style>
+<script>
+$(document).ready(function(){
+	/*
+	$('h1').css({
+		'color':'yellow',
+		'background':'black'
+	});
+	*/
+	// hover는 함수 2개 들어감 - 나갈 때 들어올 때
+	$('h1').hover(function(){
+		$(this).addClass('myclass');	// class 적용
+	},function(){
+		$(this).removeClass('myclass');
+	});
+	
+	$('button').addClass('myclass');
+	
+	var html = '<h4>Add Element......';
+	var html2 = '</h4>';
+	var cnt = 1;
+	$('#ap').click(function(){
+		$('#result').append(html+cnt+html2);
+		cnt++;
+		$('button').removeClass('myclass');
+		$('button').not($('button').eq(1)).addClass('myclass');
+	});
+	$('#pr').click(function(){
+		$('#result').prepend(html+cnt+html2);
+		cnt++;
+		$('button').removeClass('myclass');
+		$('button').not($('button').eq(2)).addClass('myclass');
+	});
+	$('#af').click(function(){
+		$('#result').after(html+cnt+html2);
+		cnt++;
+		$('button').removeClass('myclass');
+		$('button').not($(this)).addClass('myclass');
+	});
+	$('#be').click(function(){
+		$('#result').before(html+cnt+html2);
+		cnt++;
+		$('button').removeClass('myclass');
+		$('button').not($(this)).addClass('myclass');
+	});
+	// element 그 자체 삭제 (태그 + 내용)
+	$('#re').click(function(){
+		$('#result').remove();
+		$('h4').remove();
+		$('button').removeClass('myclass');
+		$('button').not($(this)).addClass('myclass');
+	});
+	// 안의 내용만 삭제
+	$('#em').click(function(){
+		$('#result').empty();
+		$('h4').empty();
+		$('button').removeClass('myclass');
+		$('button').not($('button').last()).addClass('myclass');
+	});
+		
+	});
+</script>
+
+
+<h1>JQ09 Main</h1>
+
+<button id="ap">append</button>
+<button id="pr">prepend</button>
+<button id="af">after</button>
+<button id="be">before</button>
+<button id="re">remove</button>
+<button id="em">empty</button>
+<hr>
+<div id="result"></div>
+

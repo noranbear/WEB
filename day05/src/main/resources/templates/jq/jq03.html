@@ -1,0 +1,74 @@
+<meta charset="UTF-8">
+
+<script>
+$(document).ready(function(){
+	
+	// id 입력 하지 않은 경우, 다른 창으로 가지 못함.
+	$('#login_form > div > input[name="id"]').blur(function(){
+		var id = $(this).val();
+		if(id == ''){
+			$(this).focus();
+		};
+	});
+	$('#login_form > div > input[name="pwd"]').blur(function(){
+		var pwd = $(this).val();
+		if(pwd == ''){
+			$(this).focus();
+		};
+	});
+	
+	$('button').click(function(){
+		var id = $('input[name="id"]').val();
+		var pwd = $('input[name="pwd"]').val();
+		// LOGIN 버튼 클릭 시
+		// id와 pwd가 공란인지 확인 후
+		// focus 이동 및 span 메시지 출력
+		
+		if(id == ''){
+			$('#sid').text('*ID 필수').css('color','red');
+			$('input[name="id"]').focus();
+			return;
+		
+		};
+		if(pwd == ''){
+			$('#spwd').text('*PW 필수').css('color','red');
+			$('input[name="pwd"]').focus();
+			return;
+		}
+		
+		$('#login_form').attr({
+			'action':'loginimpl',
+			'method':'post'
+		});	//attribute 추가
+		$('#login_form').submit();
+		
+	});
+});
+</script>
+
+
+<h1>JQ03 Login</h1>
+<!--
+<form id="login_form">	<!-- 화면에 있는 것을 서버에 전송하기 위해 form을 쓴다 
+ID<input type="text" name="id"><span id="sid"></span><br>
+PWD<input type="password" name="pwd"><span id="spwd"></span> -->
+<!-- 그냥 날릴 때는 submit
+</form>
+<button>LOGIN</button> -->
+
+<div class="container col-sm-6">
+<form id="login_form">
+	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		<input id="id" type="text" class="form-control" name="id" placeholder="ID">
+		<span id="sid"></span>
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+		<input id="pwd" type="password" class="form-control" name="pwd" placeholder="Password">
+		<span id="spwd"></span>
+	</div>
+</form>
+<button>LOGIN</button>
+</div>
+

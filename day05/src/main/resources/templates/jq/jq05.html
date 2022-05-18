@@ -1,0 +1,67 @@
+<meta charset="UTF-8">
+
+<style>
+#result{
+	width: 300px;
+	border: 2px solid red;
+}
+</style>
+<script>
+function display(d){
+	var txt='';
+	// 배열을 각각을 함수로 돌릴거야	// for loop 대신 in jQuery
+	$(d).each(function(index,item){	// 자동으로 배열 길이만큼 돌아간다.
+		//alert(index+ ' '+item);
+		txt += '<h3>';
+		txt += item.id+' '+item.name+' '+item.age;
+		txt += '</h3>';
+	});
+	/*
+	for (var i in d) {
+		txt += '<h3>';
+		txt += d[i].id+' '+d[i].name+' '+d[i].age;
+		txt += '</h3>';
+	};
+	*/
+	$('#result').html(txt); // text로 뿌리면 <h></h>도 텍스트로 걍 다 나옴
+
+};
+function getdata(){
+	var data = [	// DB에서 내려올 데이터
+		{id:'id01',name:'lee',age:10},
+		{id:'id02',name:'kim',age:5},
+		{id:'id03',name:'na',age:30},
+		{id:'id04',name:'song',age:25},
+		{id:'id05',name:'no',age:82}
+		];
+	//alert(data);
+	display(data);
+};
+$(document).ready(function(){	// 문서가 준비가 되면 함수가 실행된다.
+	$('#get').click(function(){
+		getdata();	// 데이터 요청 - 담에는 AJAX라는 서버에 요청 (올 데이터는 JSON)
+	});
+	
+	$('#show').click(function(){
+		//$('#result').show();
+		//$('#result').fadeIn();
+		$('#result').slideDown();
+	});
+	$('#hide').click(function(){
+		//$('#result').hide();
+		//$('#result').fadeOut();
+		$('#result').slideUp();
+	});
+});
+</script>
+
+<h1>JQ05 Main</h1>
+
+<button id="get">GET DATA</button>
+<button id="show">Show</button>
+<button id="hide">Hide</button>
+
+<div id="result"></div>
+
+
+

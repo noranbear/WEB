@@ -1,0 +1,108 @@
+<meta charset="UTF-8">
+
+<style>
+#dd, #dd2, #p{
+	display:inline-block;
+}
+#dd2{
+	background-color: white;
+	color: black;
+}
+button{
+	float: right;
+}
+</style>
+<script>
+$(document).ready(function(){
+	
+	// 다음 버튼을 눌렀을 때
+	$('button').click(function(){
+		var year = $('input[name="year"]').val();
+		var month = $('select[name="month"]').val();
+		var day = $('input[name="day"]').val();
+		var sex = $('select[name="sex"]').val();
+		
+		// 빈 공간 경고 - !썼을 때 경고문 사라지는 거
+		if(year == ''){
+			$('#sbirth').text('*해당 연도를 쓰시오.').css('color','red');
+			$('input[name="year"]').focus();
+			return;
+		}
+		if(month == ''){
+			$('#sbirth').text('*해당 달을 선택하시오.').css('color','red');
+			$('select[name="month"]').focus();
+			return;
+		}
+		if(day == ''){
+			$('#sbirth').text('*해당 일을 쓰시오.').css('color','red');
+			$('input[name="day"]').focus();
+			return;
+		}
+		if(sex == ''){
+			$('#ssex').text('*성별을 선택하시오.').css('color','red');
+			$('select[name="sex"]').focus();
+			return;
+		}
+		
+		$('#login_form').attr({
+			'action':'register2',
+			'method':'post'
+		});
+		$('#login_form').submit();
+		
+	});
+});
+</script>
+
+
+<h1>JQ042 WS</h1>
+<h1><span th:text="${regname}"></span>님</h1>
+<h1>Webpage에 오신 것을 환영합니다.</h1>
+
+<hr>
+<form id="login_form">
+	<div>
+		<select name="country">
+			<option value="">국가</option>
+			<option value="ko">한국</option>
+			<option value="usa">미국</option>
+			<option value="etc">그외</option>
+		</select>
+		<input type="text" name="cnumber" placeholder="국가번호">
+		<input type="text" name="phone" placeholder="전화번호(선택사항)"><br>
+		<span>전화번호는 계정 보안용으로 사용됩니다. 다른 사용자에게는<br>
+		전화번호가 표시되지 않습니다</span><br><br>
+		</div>
+	<div>	
+		<input type="text" name="email" placeholder="복구 이메일 주소(선택사항)">
+		<span>계정을 안전하게 보호하기 위해 사용합니다</span><br><br>
+	</div>
+	<div>
+		<input type="text" name="year" placeholder="연도">
+		<select name="month">
+			<option value="">월</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<input type="text" name="day" placeholder="일"><br>
+		<span id="sbirth"></span><br><br>
+	</div>
+	<div>
+		<select name="sex">
+			<option value="">성별</option>
+			<option value="fe">여성</option>
+			<option value="me">남성</option>
+			<option value="no">공개 안함</option>
+			<option value="cust">사용자 지정</option>
+		</select><br>
+		<span id="ssex"></span><br><br>
+	</div>
+</form>
+<p id="p"><a href="/jq04">뒤로</a></p>
+<button>완료</button><span id="sp"> </span>
+
+
+

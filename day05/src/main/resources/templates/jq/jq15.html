@@ -1,0 +1,100 @@
+<meta charset="UTF-8">
+
+<style>
+.btn{
+	flex: 1 1 auto;
+	margin: 10px;
+	padding: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: white;
+	/* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+	box-shadow: 0 0 20px #eee;
+	border: 0px;
+}
+.btn:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+.font{
+	font-size: 2em;
+	padding: 20px;
+}
+
+.btn-4 {
+  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+}
+.right{
+	margin-left: 0px;
+}
+#img{
+	max-width: 100%;
+	height: auto;
+}
+</style>
+<script>
+$(document).ready(function(){
+	var imgs = ['img/background.png','img/ingame.png','img/recc.png',
+				'img/orisa.png','img/ready.png'];
+	var cnt = 0;
+	var text = true;
+	
+	$('#auto').click(function(){
+		
+			var interval = setInterval(function(){
+				if(text != true){
+					return;
+				}
+				$('#img').attr('src',imgs[cnt]);
+				if(cnt < 4){
+					cnt++;
+				}
+				$('h2').text(cnt);
+			}, 2000);
+			
+			if(cnt == 5){
+				return;
+			}
+	});
+	$('#stop').click(function(){
+			clearInterval(interval);
+			text = false;
+	});
+	$('#left').click(function(){
+		if(cnt < 6 && cnt > 0){
+			$('#img').attr('src',imgs[cnt]);
+			$('h2').text(cnt);
+			cnt--;
+		};
+		if(cnt < 1){
+			cnt += 5;
+			$('#img').attr('src',imgs[cnt]);
+			$('h2').text(cnt);
+			cnt--;
+		};
+	});
+	$('#right').click(function(){
+		if(cnt < 6 && cnt >= 0){
+			$('#img').attr('src',imgs[cnt]);
+			$('h2').text(cnt);
+			cnt++;
+		};
+	});
+});
+</script>
+
+
+<h1>JQ15 WS</h1>
+
+
+<button id="left" type="button" class="btn font btn-4"><</button>
+<div class="btn-group">
+  <button id="auto" type="button" class="btn btn-primary btn-lg btn-4">Auto</button>
+  <button id="stop" type="button" class="btn btn-primary btn-lg btn-4">Stop</button>
+</div>
+<button id="right" type="button" class="btn font btn-4 right">></button>
+
+<h2></h2>
+<img id="img" src="img/background.png">
+

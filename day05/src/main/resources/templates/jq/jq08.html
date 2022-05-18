@@ -1,0 +1,108 @@
+<meta charset="UTF-8">
+
+<script>
+// 사용자 정보를 INPUT FIELD에다가 집어넣음 // 현업은 이렇게 안함
+function getdata(){
+	$('#name').val('Kim');
+	// 이름은 바꿀 수 없게 한다.
+	$('#name').attr('disabled','disabled');
+	$('#pwd').val('1111');
+	$('input[name="ch"]:checkbox[value="ch3"]').attr('checked', true);	// checkbox
+	$('input[name="ch"]:checkbox[value="ch1"]').attr('checked', true);
+	$('input[name="optr"]:radio[value="op3"]').attr('checked', true);
+	$('#sel').val('2').attr('selected', 'selected');
+};
+$(document).ready(function(){
+	
+	getdata();
+	
+	
+	
+	$('#nhelp').hide();
+	$('#phelp').hide();
+	
+	$('#reg_bt').click(function(){
+		
+		var name = $('#name').val();
+		var pwd = $('#pwd').val();
+		
+		if(name == ''){
+			$('#nhelp').show();
+			$('#name').focus();
+			return;
+		}/*else{
+			$('#nhelp').hide();
+		}*/
+		
+		
+		if(pwd == ''){
+			$('#phelp').show();
+			$('#pwd').focus();
+			return;
+		}else{
+			$('#phelp').hide();
+		}
+		
+		$('#reg_form').attr({
+			'action':'registerimpl',
+			'method':'post'
+		});
+		
+		$('#reg_form').submit();
+	});
+	
+	// 키보드 눌렀다가 땔 때 hide - 이런 식으로도 구현 가능
+	$('#name').keyup(function(){
+		$('#nhelp').hide();
+	});
+});
+</script>
+
+
+<div class="container col-sm-6">
+	<h1>JQ08 Edit My Info</h1>
+	<form id="reg_form">
+		<div class="form-group">
+			<label for="name">Name:</label>
+			<input type="text" class="form-control" name="name" id="name" placeholder="Input Name">
+			<span class="help-block" id="nhelp">This is mandatory field...</span>
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password:</label>
+			<input type="password" class="form-control" name="pwd" id="pwd" placeholder="Input Password">
+			<span class="help-block" id="phelp">This is mandatory field...</span>
+		</div>
+		<div class="form-group">
+			<label class="checkbox-inline"><input type="checkbox" name="ch" value="ch1">Option 1</label>
+			<label class="checkbox-inline"><input type="checkbox" name="ch" value="ch2">Option 2</label>
+			<label class="checkbox-inline"><input type="checkbox" name="ch" value="ch3">Option 3</label>
+		</div>
+		<div class="form-group">
+			<div class="radio-inline">
+	  			<label><input type="radio" name="optr" value="op1" checked>Option 1</label>
+			</div>
+			<div class="radio-inline">
+				<label><input type="radio" name="optr" value="op2">Option 2</label>
+			</div>
+			<div class="radio-inline">
+				<label><input type="radio" name="optr" value="op3">Option 3</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="sel">Select list:</label>
+			<select class="form-control" name="sel" id="sel">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+			</select>
+		</div>
+		<button type="button" class="btn btn-success" id="reg_bt">Register</button>
+	</form>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<style>
+.image{
+	max-width: 100%;
+	height: auto;
+}
+</style>
+<script>
+$(document).ready(function(){
+	var imgs = ['img/background.png','img/ingame.png','img/recc.png'];
+	var cnt = 0;
+	setInterval(function(){
+		$('#image').attr('src', imgs[cnt]);
+		$('h2').text(cnt);	// outofbound error가 없나보다
+		cnt++;
+	}, 2000);
+});
+</script>
+
+
+<h1>JQ12 Main</h1>
+<h2></h2>
+<img class="image" id="image">
+
+
+

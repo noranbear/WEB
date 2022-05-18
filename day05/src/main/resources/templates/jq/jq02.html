@@ -1,0 +1,74 @@
+<meta charset="UTF-8">
+<style>
+.b{
+	color:white;
+	background: grey;
+}
+</style>
+<script>
+$(document).ready(function(){
+	$('button').on({	// on: 버튼에 이벤트를 붙이겠다
+		'click':function(){
+			$(this).css({'color':'yellow','background':'black'});
+		},
+		'mouseenter':function(){
+			$('h1').text('mouse enter');
+			$(this).addClass('b');
+		},
+		'mouseleave':function(){
+			$('h1').text('mouse leave');
+			$(this).removeClass('b');
+		}
+	});		
+	
+	/* 위와 같음
+	$('button').mouseenter(function(){
+		$('h1').text('mouse enter');
+	});
+	$('button').mouseleave(function(){
+		$('h1').text('mouse leave');
+	});
+	$('button').click(function(){
+		$(this).css({'color':'yellow','background':'black'});	// 한 가지 이상의 것 하기 위해
+	});
+	*/
+	// hover = 들어왔다 나왔다 2동작 (mouseleave + mouseenter)
+	$('h2').hover(function(){
+		$(this).addClass('b');
+	}, function(){
+		$(this).removeClass('b');
+	});
+	
+	// 태그의 attribute 가져올 때
+	$('input[name="id"]').focus(function(){	//input창에 들어갈 때 focus
+		$(this).addClass('b');
+		$('form > span:eq(0)').text('ID입력 ㄱ');
+	});
+	$('input[name="id"]').blur(function(){
+		$(this).removeClass('b');
+		var txt = $(this).val();	// val =input 값 가져올 때
+		if(txt==''){
+			$('form > span:eq(0)').text('*ID 필수').css('color','red');
+			$(this).focus();	// 밖으로 못나가게 focus
+		};
+		if(txt.length < 5 ){
+			$('form > span:eq(0)').text('*ID 5자 이상').css('color','red');
+		}
+	});
+});
+</script>
+
+
+<h1>JQ02 Main</h1>
+
+<h2>Header2</h2>
+<button>Button</button>
+<form>
+	ID<input type="text" name="id"><span></span><br>
+	PWD<input type="password" name="pwd"><span></span><br>
+	<input type="submit" value="login">
+</form>
+
+
+
+

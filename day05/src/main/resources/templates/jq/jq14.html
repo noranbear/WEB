@@ -1,0 +1,55 @@
+<meta charset="UTF-8">
+
+<style>
+table{
+	width: 500px;
+	border: 2px solid black;
+}
+</style>
+<script>
+function getdata(){
+	var data = [	// DB에서 내려올 데이터
+		{id:'id01',name:'lee',age:10},
+		{id:'id02',name:'kim',age:5},
+		{id:'id03',name:'na',age:30},
+		{id:'id04',name:'song',age:25},
+		{id:'id05',name:'no',age:82}
+		];
+	
+	var txt = '';
+	$(data).each(function(index,item){
+		txt += '<tr>';
+		txt += '<td>'+item.id+'</td>';
+		txt += '<td>'+item.name+'</td>';
+		txt += '<td>'+item.age+'</td>';
+		txt += '</tr>';
+	});
+	$('table > tbody').append(txt);
+};
+$(document).ready(function(){
+	getdata();
+	
+	$(window).scroll(function(){	// scroll에 이벤트, scroll은 윈도우 거
+		
+		// 스크롤이 맨 밑에 닿았을 때 이미지 로드
+		var doch = $(document).height();
+		var winh = $(window).scrollTop()+$(window).height();
+		if(doch <= winh + 50){
+			getdata();
+		};
+	});
+});
+</script>
+
+
+<h1>JQ14 Main</h1>
+
+<table>
+	<thead>
+		<tr><th>ID</th><th>NAME</th><th>AGE</th></tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+

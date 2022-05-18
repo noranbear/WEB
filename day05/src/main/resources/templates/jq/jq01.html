@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+
+<script>
+$(document).ready(function(){// $주어.함수(함수 or 값) - document는 변수이다
+	$('h1').css('color','red');
+	$('#hh1').html('<a href="#">Click</a>'); // = innerHTML (text, html문 넣기 가능)
+	//$('#hh1').text('aaa');	// text 넣기만 가능
+	var txt = $('h1').eq(0).text(); // h1의 0번째 txt를 가져옴 // 넣을 때 가져올 때 다 text
+	$('h1').eq(1).text(txt); // 1번째에 txt를 넣어라
+	$('h1 > a').click(function(){// h1에 click 이벤트가 일어나면 함수 동작
+		alert('a');
+	});	
+}); 	
+</script>
+
+
+<h1>JQ01 Main</h1>
+
+<h1>Header1</h1>
+<h1 id="hh1">Header2</h1>
+
+

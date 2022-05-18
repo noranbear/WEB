@@ -76,4 +76,11 @@ public class JsController {
 		m.addAttribute("left", "js/left");
 		return "main";
 	}
+	
+	@RequestMapping("/js10") 
+	public String js10(Model m) {
+		m.addAttribute("center", "js/js10");
+		m.addAttribute("left", "js/left");
+		return "main";
+	}
 }

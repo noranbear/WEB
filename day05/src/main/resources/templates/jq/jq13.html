@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+
+<style>
+#simg{
+	width: 500px;
+	height: 250px;
+	margin: 5px;
+}
+</style>
+<script>
+$(document).ready(function(){
+	var getdata = function(){
+		for(var i=0; i<11; i++){
+			// 서버에서 img를 가져온다는 전제
+			$('#data').append('<img id="simg" src="img/orisa.png">');
+		}
+		
+	};
+	
+	getdata();
+	$(window).scroll(function(){	// scroll에 이벤트, scroll은 윈도우 거
+		/*$('h1').text($(document).height()+ ' '+ $(window).scrollTop()+
+				' '+$(window).height());*/
+		
+		// 스크롤이 맨 밑에 닿았을 때 이미지 로드
+		var doch = $(document).height();
+		var winh = $(window).scrollTop()+$(window).height();
+		if(doch <= winh + 50){	// 50을 넣어야지 스크롤이 끝까지 안 갔을 때 로드됨
+			getdata();
+		};
+	});
+});
+</script>
+
+
+<h1>JQ13 Main</h1>
+
+<div id="data"></div>
+
+

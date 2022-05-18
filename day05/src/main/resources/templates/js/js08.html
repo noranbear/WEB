@@ -1,3 +1,35 @@
 <meta charset="UTF-8">
+<style>
+#result{
+	width: 300px;
+	border: 2px solid red;
+}
+</style>
+<script>
+// 화면에다가 데이터를 보여주는 함수.
+function display(d){
+	var txt = '';
+	for(var i in d){
+		txt += '<h2>';
+		txt += d[i].id +' '+ d[i].name +' '+ d[i].age;
+		txt += '</h2>';
+	}
+	document.querySelector('#result').innerHTML = txt;
+};
+// 지금으로써는 데이터를 가져올 수 없으니 만든다.
+function getdata(){
+	var a = [
+		{id:'id01',name:'lee',age:10},
+		{id:'id02',name:'kim',age:5},
+		{id:'id03',name:'na',age:30},
+		{id:'id04',name:'song',age:25},
+		{id:'id05',name:'no',age:82}
+		];
+	display(a);
+};
+</script>
+
 
 <h1>JS08 Main</h1>
+<button onclick="getdata();">Get Data</button>	<!-- 서버에다가 데이터 요청 - 실제로 가져오는 게 AJAX -->
+<div id="result"></div>
