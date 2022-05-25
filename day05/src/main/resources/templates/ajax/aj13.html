@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+
+<!--  비동기 통신 AJAX -->
+<script>
+function display(data){
+	var txt = $('h3').text(data);
+};
+
+function getdata(){
+	$.ajax({	// ajax 호출
+		url:'gettime',		// 이 url로 호출: gettime이라는 서버 프로그램에게
+		success: function(data){	// 성공하면 이 함수 호출
+				display(data);
+		},
+		error: function(e){	// 에러나면 이 함수 호출
+			alert('Error'+e.responseText);
+		}
+	});	
+};
+
+$(document).ready(function(){
+	setInterval(getdata, 1000)		// 1초에 한 번씩 요청해서 바꿈
+									// 데이터가 별도로 뿌려짐 - asyncronous
+});									// getdata 함수처럼 함수가 저렇게 직접적으로 들어감 가능
+</script>
+
+
+<h1>AJ13 Main</h1>
+
+<h3></h3>
+

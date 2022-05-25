@@ -38,14 +38,11 @@ $(document).ready(function(){
 	var imgs = ['img/background.png','img/ingame.png','img/recc.png',
 				'img/orisa.png','img/ready.png'];
 	var cnt = 0;
-	var text = true;
+	var interval = null;
 	
 	$('#auto').click(function(){
 		
-			var interval = setInterval(function(){
-				if(text != true){
-					return;
-				}
+			interval = setInterval(function(){
 				$('#img').attr('src',imgs[cnt]);
 				if(cnt < 4){
 					cnt++;
@@ -59,7 +56,6 @@ $(document).ready(function(){
 	});
 	$('#stop').click(function(){
 			clearInterval(interval);
-			text = false;
 	});
 	$('#left').click(function(){
 		if(cnt < 6 && cnt > 0){

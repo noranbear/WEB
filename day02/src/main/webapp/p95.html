@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>form tag</h1>
+	<!-- html이 다시 서버로 들어갈 때 register하는 프로그래밍에게 값을 전달 -->
+	<!-- <form action="register" method="post">  -->
+	<form action="register" method="get">
+		<!-- 예쁘게 만드려면 테이블 사용가능 -->
+		<label for="iid">ID</label>
+		<input id="iid" type="text" name="id"><br>
+		<label for="ipwd">PWD</label>
+		<input id="ipwd" type="password" name="pwd"><br>
+		<label for="iage">AGE</label>
+		<input id="iage" type="number" name="age"><br>
+		<input type="submit" value="register"> <!-- 서버로 전송할 버튼 -->
+	</form>
+</body>
+</html>

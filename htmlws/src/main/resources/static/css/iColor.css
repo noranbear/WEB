@@ -1,0 +1,33 @@
+@charset "EUC-KR";
+
+/*헤더 스타일*/
+h1{
+	color: #800080;
+	text-shadow: 2px 2px #4d4d4d;
+}
+h2{
+	color: #4b0082;
+}
+
+/*폰트 두께*/
+p.normal{
+	font-weight: normal;
+}
+p.light{
+	font-weight: lighter;
+}
+p.thick{
+	font-weight: bold;
+}
+p.thicker{
+	font-weight: 900;
+}
+
+/*이미지*/
+.logo{
+	height:200px
+}
+img{
+	width: auto;
+	max-height: 100%;
+}

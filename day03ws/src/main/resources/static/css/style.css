@@ -1,0 +1,168 @@
+@charset "EUC-KR";
+
+/* 2022-05-13 */
+
+/*  Global CSS starts -------------------------------------------------*/
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+ul,ol{
+	list-style: none;
+}
+/*  Global CSS ends -------------------------------------------------*/
+
+/*  Header CSS starts -------------------------------------------------*/
+header{
+	width: 600px;
+	height: 80px;
+	background: white;
+	margin: 0 auto; /*x y(정가운데-화면이 줄어들든 커지든(반응형))*/
+	border: 1px solid #E4E4E4;
+	display: inline;
+	
+}
+header > h1{
+	/*text-align: center;*/
+	line-height: 80px;
+	margin: 0 20px;
+	color: #FFD228;
+}
+header > div{
+	display:inline;
+}
+
+.big_bt{
+	width: 100px;
+	height: 50px;
+	background-color: #FFD228;
+	border-radius: 30px;
+	
+}
+.big_bt > a{
+	text-decoration: none; /*underline 없앰*/
+	color: white;
+	display: block;
+	line-height: 50px; /*block 위아래 크기 조절*/
+	text-align: center; /*이렇게만 쓰면 a는 인라인이기 때문에 변화가 없다 (이미 센터임)-블록으로 바꾸자*/
+	font-size: 1em;
+	font-weight: bold;
+}
+/*  Header CSS ends -------------------------------------------------*/
+
+/*  Nav CSS starts -------------------------------------------------*/
+nav{
+	width: 600px;
+	height: 30px;
+	background: #353535;
+	margin: 0 auto; 
+}
+nav > ul{
+	width: 500px;
+	margin: 0 auto;
+}
+nav > ul > li{
+	float: left;
+	width: 125px;
+	line-height: 30px;
+}
+nav > ul > li > a{
+	display: block;
+	text-align: center;
+	color: white;
+}
+nav > ul > li > a:hover{
+	background: #191919;
+}
+/*  Nav CSS ends -------------------------------------------------*/
+
+/*  Section CSS starts -------------------------------------------------*/
+section{
+	width: 600px;
+	height: 500px;
+	background: grey;
+	margin: 0 auto;
+}
+section > aside{
+	float: left;
+}
+section > #lside{
+	width: 100px;
+	height: 500px;
+	background: #EAEAEA;
+	margin: 0 auto;
+}
+section > #cside{
+	width: 400px;
+	height: 500px;
+	background: white;
+}
+section > #rside{
+	width: 100px;
+	height: 500px;
+	background: grey;
+}
+/*lside*/
+#lside > article > ul{
+	width: 100px; /*80*/
+	margin: 0 auto;
+}
+#lside > article > ul > li{
+	width: 100 px;
+	margin: 0 auto;
+	line-height: 25px;
+	padding-left: 10px;
+}
+/*menu*/
+#lside > article > ul > #l1{
+	line-height: 40px;
+	font-size: 20px;
+	pointer-events:none;
+}
+
+#lside > article > ul > li:hover{
+	background: #BDBDBD
+	
+}
+
+/*cside*/
+#cside{
+	line-height: 40px;
+	
+}
+#tb1{
+		border-collapse: collapse; /* border 없애줌*/
+		width: 300px;
+		height: 150px;
+		border: 1px solid black;	
+}
+#tb1 > thead > tr{
+		background:white;
+		color: black;
+
+}
+#tb1 > tbody > tr:nth-child(2n+1){
+		background:#D5D5D5;
+		color: black;
+}
+/*rside*/
+#rside{
+	text-align: center;
+	line-height: 20px;
+	font-size: 0.5em;
+}
+
+/*  Section CSS ends -------------------------------------------------*/
+
+/*  Footer CSS starts -------------------------------------------------*/
+footer{
+	width: 600px;
+	height: 30px;
+	background: black;
+	margin: 0 auto; 
+}
+/*  Footer CSS ends -------------------------------------------------*/

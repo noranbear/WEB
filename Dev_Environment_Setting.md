@@ -6,23 +6,23 @@
 
 <br>
 
-<br>
-
 ## 개요
 
-- 개발환경
+```
+1. 개발환경 
 
-- 환경세팅
-    		1. STS 환경세팅
-    		2. SpringBoot 환경세팅
-         - 프로젝트 생성
-         - Maven Library
-    		3. Web Application
-         - Importing Dependencies
-         - Port 및 jsp 파일 경로 설정
-- WEB 실행
+2. 환경세팅
+  1) STS 환경세팅
+  2) SpringBoot 환경세팅
+     - 프로젝트 생성
+     - Maven Library
+  3) Web Application
+     - Importing Dependencies
+     - Port 및 jsp 파일 경로 설정
+     
+3. WEB 실행
 
-<br>
+```
 
 <br>
 
@@ -35,8 +35,6 @@
 - SpringBoot 2.6.7
 - Java 8
 - Maven
-
-<br>
 
 <br>
 

@@ -1,0 +1,45 @@
+<meta charset="UTF-8">
+
+<!--  다양한 데이터 뭉탱이로 가져오기 -> 배열 -> 객체 -> JASON => 네이버 검색순위 베이버 버전-->
+<style>
+#result{
+	width: 300px;
+	border: 2px solid red;
+}
+</style>
+<script>
+function display(data){
+	var str = '';
+	$(data).each(function(index,item){	// item 하나가 js에 있는 객체
+		str += '<h3>';
+		str += item.id+' '+item.name+' '+item.age;
+		str += '</h3>';
+	});
+	$('#result').html(str);
+};
+
+function getdata(){
+	$.ajax({
+		url:'getdata',
+		success:function(data){
+			// [{},{},..] = JASON
+			display(data);
+			
+		}
+	});
+};
+
+$(document).ready(function(){
+	setInterval(() => {
+		alert('get data...');
+		getdata();
+	}, 3000);
+});
+</script>
+
+
+<h1>AJ05 Main</h1>
+<button>GET DATA</button>
+<div id="result"></div>
+
+

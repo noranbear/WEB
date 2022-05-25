@@ -1,0 +1,10 @@
+<aside id="left_aside">
+	<ul>
+		<li><a href="home1">home1</a></li>
+		<li><a href="home2">home2</a></li>
+		<li><a href="home3">home3</a></li>
+	</ul>
+</aside>
+<aside id="right_aside" 
+	th:include="${scenter} ? ${scenter} : @{home/homemain}">
+</aside>

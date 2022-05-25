@@ -1,0 +1,88 @@
+@charset "EUC-KR";
+/*2022-05-13*/
+/*  Global CSS starts -------------------------------------------------*/
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+ul,ol{
+	list-style: none;
+}
+/*  Global CSS ends -------------------------------------------------*/
+
+/*  Header CSS starts -------------------------------------------------*/
+header{
+	width: 600px;
+	height: 100px;
+	background: red;
+	margin: 0 auto; /*x y(정가운데-화면이 줄어들든 커지든(반응형))*/
+}
+header > h1{
+	text-align: center;
+	line-height: 100px;
+}
+/*  Header CSS ends -------------------------------------------------*/
+
+/*  Nav CSS starts -------------------------------------------------*/
+nav{
+	width: 600px;
+	height: 30px;
+	background: pink;
+	margin: 0 auto; 
+}
+nav > ul{
+	width: 500px;
+	margin: 0 auto;
+}
+nav > ul > li{
+	float: left;
+	width: 125px;
+	line-height: 30px;
+}
+nav > ul > li > a{
+	display: block;
+	text-align: center;
+}
+/*  Nav CSS ends -------------------------------------------------*/
+
+/*  Section CSS starts -------------------------------------------------*/
+section{
+	width: 600px;
+	height: 500px;
+	background: grey;
+	margin: 0 auto;
+}
+section > aside{
+	float:left; /*박스 밀기*/
+}
+section > #left_aside{
+	width: 100px;
+	height: 500px;
+	background: lime;
+}
+section > #right_aside{
+	width: 500px;
+	height: 500px;
+	background: #0FF9EB;
+}
+section > .center{
+	width: 550px;
+	height: 450px;
+	background: white;
+	display: inline-block;
+	margin: 25px;
+}
+/*  Section CSS ends -------------------------------------------------*/
+
+/*  Footer CSS starts -------------------------------------------------*/
+footer{
+	width: 600px;
+	height: 30px;
+	background: black;
+	margin: 0 auto; 
+}
+/*  Footer CSS ends -------------------------------------------------*/

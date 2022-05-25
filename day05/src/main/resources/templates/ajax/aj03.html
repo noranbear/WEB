@@ -1,0 +1,68 @@
+<meta charset="UTF-8">
+
+<!--  입력한 아이디가 가능한지 아닌지 실시간으로 보여주자. -->
+<style>
+</style>
+<script>
+function checkid(id){
+	$.ajax({
+		url:'checkid',
+		data: {'id':id},
+		success: function(data){
+			if(data == '1'){
+				$('#sid').text('사용가능 합니다.');
+			}else{
+				$('#sid').text('사용 불가능 합니다.');
+			}
+		}
+	});
+};
+$(document).ready(function(){
+	
+	// $('button').attr('disabled','disabled'); //다른 방식으로 하면 이거 활용 가능
+	// $('button').removeAttr('disabled');		// span 사용 방식 - 버튼 막았다가
+												// 비번 같으면 버튼 활성화
+	// 입력 아이디 가능한지 확인 후 메세지
+	$('input[name="id"]').keyup(function(){
+		var id = $(this).val();
+		// 길이가 3자리 미만이면 span에 "3자리 이상이어야 합니다." 출력
+		if(id.length < 3){
+			$('#sid').text("3자리 이상이어야 합니다.");
+		}else{
+			$('#sid').text('');
+			checkid(id);
+		}
+		
+	});
+	
+	$('button').click(function(){
+		var pwd = $('input[name="pwd"]').val();
+		var pwd2 = $('input[name="pwd2"]').val();
+		
+		// 패스워드 두 개 일치
+		if(pwd != pwd2){
+			alert('패스워드가 일치하지 않습니다.');
+			return;
+		}
+
+		$('#reg_form').attr({
+			'action':'reg',
+			'method':'post'
+		});
+		$('#reg_form').submit();
+		
+	});
+	
+});
+</script>
+
+
+<h1>AJ03 Main</h1>
+<form id="reg_form">
+	ID<input type="text" name="id"><span id="sid"></span><br>
+	PW1<input type="password" name="pwd"><br>
+	PW2<input type="password" name="pwd2"><br>
+</form>
+<button>Register</button> <!-- button이 form 밖에 있어야 데이터 다 안 날라감 -->
+
+

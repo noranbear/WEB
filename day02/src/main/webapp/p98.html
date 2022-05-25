@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Form Tag</h1>
+	<form action="register2" method="POST"> <!-- form에 action, method 반드시 있어야 함, input도 반드시 있어야 함 -->
+		<fieldset>
+			<legend>회원가입</legend>
+			<!-- name 중요. 이 이름으로 서버로 날라감 -->
+			ID<input type="text" name="id"><br>
+			PWD<input type="password" name="pwd"><br>
+			AGE<input type="number" name="age"><br>
+			BIRTH<input type="date" name="birth"><br>
+			GENDER<br>
+			<!--  radio버튼 - name이 같아서 하나만 선택가능 -->
+			<!--  사람이 직접 적지 않는 값은 value값을 지정한다 -->
+			<input type="radio" name="gender" value="f">Female<br> <!-- female -->
+			<input type="radio" name="gender" value="m">Male<br>
+			<input type="radio" name="gender" value="a">Male<br>
+			HOBBY<br>
+			<input type="checkbox" name="hobby" value="s">Study<br>
+			<input type="checkbox" name="hobby" value="t">Train<br>
+			<input type="checkbox" name="hobby" value="e">Eat<br>
+			Car<br>
+			<select name="car">
+				<option value="k1">K1</option>
+				<option value="k2">K2</option>
+				<option value="k3">K3</option>
+			</select>
+			Resume<br>
+			<textarea name="resume" rows="10" cols="100"></textarea><br>
+			<!--  화면에는 안보이지만 서버에는 전송할 수 있다. hidden 아주 중요 -->
+			<input type="hidden" name="loginid" value="leejan">
+			<input type="range" name="range" size="10" step="1">
+		</fieldset>
+		<input type="submit" value="REGISTER">
+		<input type="reset" value="RESET">
+	</form>
+</body>
+</html>

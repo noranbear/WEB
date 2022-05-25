@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- 이거 html아니고 thyemleaf라는 걸 쓴다는 것 -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<!-- 다 div 종류들 -->
+	<header>
+		<h1><a href="/">Shopping Mall</a></h1>
+	</header>
+	<!-- 메뉴 : 꼭 nav안에 써야 하는 건 아님 -->
+	<nav>
+		<ul>
+			<li><a href="home">Home</a>
+			<li><a href="food">Food</a>
+			<li><a href="wear">Wear</a>
+			<li><a href="media">Media</a>
+		</ul>
+	</nav>
+	<!-- center가 ? 있냐? 있으면 center 없으면 center.html-->
+	<section th:include="${center}">
+		
+	</section>
+	<footer></footer>
+</body>
+</html>

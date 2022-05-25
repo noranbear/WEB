@@ -1,0 +1,102 @@
+<meta charset="UTF-8">
+<style>
+#map{
+	/*div라는 영역엔 언제나 width, height 필요*/
+	width: 500px;
+	height: 400px;
+	border: 2px solid red;
+}
+</style>
+<script>
+function displaymarker(pos){
+	$(pos).each(function(index,item){
+		var marker = new kakao.maps.Marker({
+			map: map,
+			position: new kakao.maps.LatLng(item.lat, item.lng)
+		});
+		
+		// 마커에 표시할 인포윈도우를 생성합니다 
+	    var infowindow = new kakao.maps.InfoWindow({
+	        content: item.content // 인포윈도우에 표시할 내용
+	    });
+		// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+	    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+	    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+	    kakao.maps.event.addListener(marker, 'mouseover', functimakeOverListener(map, marker, infowindow));
+	    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+	    kakao.maps.event.addListener(marker, 'click', makeOutListener(infowindow));
+	});
+};
+
+function getMarkers(loc){
+	$.ajax({
+		url:'getmarkers',
+		data:{'loc':loc},
+		success:function(data){
+			displaymarker(data);
+		}
+	});
+};
+
+var map = null;
+function gomap(loc){
+	var latlng = null;
+	var positions = null;
+	if(loc == 's'){
+		latlng = new kakao.maps.LatLng(37.55041692365908, 126.91037178013711);
+		getMarkers('s');
+	}else if(loc == 'k'){
+		latlng = new kakao.maps.LatLng(35.16173425533525, 126.88758871719189);
+		getMarkers('k');
+	}else{
+		latlng = new kakao.maps.LatLng(35.17642453774257, 129.16669784099807);
+		getMarkers('b');
+	};
+	// 그냥 좌표 넣으면 에러
+	map.panTo(latlng);	// 이동
+};
+
+function displaymap(){
+	// 1 지도 생성----
+	var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
+    var mapOption = { 
+        center: new kakao.maps.LatLng(37.503376, 127.049776), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+	map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+};
+
+// #서울 37.55041692365908, 126.91037178013711
+// #광주 35.16173425533525, 126.88758871719189
+// #부산 35.17642453774257, 129.16669784099807
+
+$(document).ready(function(){
+	// 지도 생성
+	displaymap();
+	
+	// 지도상 이동 버튼 이벤트
+	// 서울로 이동
+	$('button:eq(1)').click(function(){
+		gomap('s');
+	});
+	// 광주로 이동
+	$('button:eq(2)').click(function(){
+		gomap('k');
+	});
+	// 부산로 이동
+	$('button:eq(3)').click(function(){
+		gomap('b');
+	});
+	
+});
+</script>
+
+
+<h1>AJ11 Main</h1>
+<button>Seoul</button>
+<button>KwangJu</button>
+<button>Busan</button>
+<div id="map"></div>
+
+

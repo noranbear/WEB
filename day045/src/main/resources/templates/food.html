@@ -1,0 +1,10 @@
+<aside id="left_aside">
+	<ul>
+		<li><a href="food1">food1</a></li>
+		<li><a href="food2">food2</a></li>
+		<li><a href="food3">food3</a></li>
+	</ul>
+</aside>
+<aside id="right_aside"
+	th:include="${scenter} ? ${scenter} : @{food/foodmain}">
+</aside>

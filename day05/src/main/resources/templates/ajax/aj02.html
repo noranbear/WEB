@@ -1,0 +1,41 @@
+<meta charset="UTF-8">
+
+<!--  버튼을 누르면 서버에서 데이터를 비동기 방식으로 가져와 화면에 쓴다. -->
+<style>
+#result{
+	width: 500px;
+	border: 2px solid red;
+}
+</style>
+<script>
+function display(data){
+	var t = '<h2>' + data + '</h2>';
+	$("#result").html(t);
+};
+function getdata(txt){
+	$.ajax({
+		url: 'search',	// search라는 서버 프로그램에게 요청
+		data:{'s':txt},		// 서버에다가 값 보내기 ''=='' 의 형식으로 보냄
+		success: function(data){
+			display(data);
+		}	// error 처리가 필요없다면 안 써도 됨.
+	});
+};
+$(document).ready(function(){
+	$('button').click(function(){
+		var txt = $('#txt').val();	// 이 값을 이용해 데이터 요청
+		getdata(txt);
+	});
+});
+</script>
+
+
+<h1>AJ02 Main</h1>
+
+<!-- 검색창에 글 쓸 때 추천 검색어 뜨는 거 구현 -->
+<!-- form으로 데이터 전송하는 방식이 아니기때문에 no form (name도 필요 x)-->
+<input type="text" id="txt">	
+<button>Search</button>
+<div id="result"></div>
+
+

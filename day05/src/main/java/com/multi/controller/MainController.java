@@ -9,7 +9,6 @@ public class MainController {
 	
 	@RequestMapping("/") // 어떠한 요청이 왔는지 기입
 	public String main(Model m) {
-		
 		return "main";
 	}
 	
